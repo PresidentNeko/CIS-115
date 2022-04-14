@@ -1,0 +1,57 @@
+/* 
+ * Cristian Rivera
+ * CIS-115
+ * 4/14/2022
+ */
+package rivera_if__else_exam;
+
+import java.util.Scanner;
+public class Rivera_if__else_exam 
+{
+
+    public static void main(String[] args) 
+    {
+        double Hours, payRate, grosspay, netpay, Total, newHours, newgrosspay;
+        int week;
+        final double STATE = .053;
+        final double FED = .095;
+        
+        Scanner k = new Scanner(System.in);
+        System.out.println("Please enter the week(1 or 2, etc.): ");
+        week = k.nextInt();
+        System.out.println("Please enter the number of hours worked: ");
+        Hours = k.nextDouble();
+        System.out.println("Please enter the hourly pay per hour: ");
+        payRate = k.nextDouble();
+        
+        if (Hours <= 40)
+        {
+            grosspay = Hours * payRate;
+            Total = grosspay * (STATE + FED);
+            netpay = grosspay - Total;
+            System.out.println("The week you entered was: " + week);
+            System.out.println("The hours worked were: " + Hours);
+            System.out.println("The pay per hour is: $" + payRate);
+            System.out.println("Your Gross Pay is: $" + grosspay);
+            System.out.println("The State Tax is: " + STATE);
+            System.out.println("The Federal Tax is: " + FED);
+            System.out.println("Your Net Pay is: $" + netpay);
+        }
+        else
+        {
+            newHours = Hours - 40;
+            newgrosspay = newHours * (payRate * 1.5);
+            grosspay = 40 * payRate;
+            grosspay = newgrosspay + grosspay;
+            Total = grosspay * (STATE + FED);
+            netpay = grosspay - Total;
+            System.out.println("The week you entered was: " + week);
+            System.out.println("The hours worked were: " + Hours);
+            System.out.println("The pay per hour is: $" + payRate);
+            System.out.println("Your Gross Pay is: $" + grosspay);
+            System.out.println("The State Tax is: " + STATE);
+            System.out.println("The Federal Tax is: " + FED);
+            System.out.println("Your Net Pay is: $" + netpay);
+        }
+    }
+} 
